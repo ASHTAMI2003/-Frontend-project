@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      .cart-icon {
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+      transition: transform 0.3s;
+   }
+   
+   .cart-icon:hover {
+      transform: scale(1.2);
+   }
+
+   .card-items row {
+        display: flex;
+        gap: 100px;
+        padding: 20px;
+      }
+      .card {
+        background: #f5f5f5;
+        border-radius: 10px;
+        transition: transform 0.3s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 350px;
+        height: 500px;
+        padding: 10px;
+        
+      }
+      .card:hover{
+         transform: scale(1.01);
+      }
+      .card a{
+         margin-right: 50px;
+      }
+      .card a:last-child{
+         margin-right: 0;
+      }
+      .price-section {
+   color: #444;
+}
+
+.current-price {
+   color: #28a745;
+   font-weight: bold;
+   font-size: 1.3rem;
+}
+
+.original-price {
+   color: #888;
+   text-decoration: line-through;
+}
+.wish-list {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    padding: 5px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+ }
+ .wish-list img {
+    width: 25px;     
+    height: 25px;
+ }
+ .header {
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   background-color: #1b1a42;
+   z-index: 1000;
+}
+
+.navbar-brand {
+   font-weight: bold;
+   font-size: 1.5rem;
+   color: #dfdede;
+}
+
+.navbar-nav .nav-link {
+   margin: 0 15px;
+   color: #e7e6e6;
+   font-weight: 500;
+}
+
+.navbar-nav .nav-link.active {
+   color: #007bff;
+}
+
+.nav-icon {
+   width: 20px;
+   height: 20px;
+}
+.hero {
+   padding: 50px 0;
+   background: #1b1a42;
+}
+footer h5.text-uppercase::after {
+   content: '';
+   display: block;
+   width: 50%; 
+   height: 2px;
+   background-color: #ffc107;; 
+   position: absolute;
+   left: 0;
+   bottom: -5px; 
+}
+footer{background-color: #1b1a42;}
+footer a{text-decoration: none;}
+footer h5.text-uppercase {
+   display: inline-block;
+   position: relative;
+}
+.nav:hover {
+    text-decoration: underline;
+    color: red ;
+}
+
+    </style>
+</head>
+<body>
+    <header class="header fixed-top">
+        <nav class="navbar navbar-expand-lg">
+           <div class="container-fluid">
+              <!-- Logo on the Left -->
+              <a class="navbar-brand logo me-auto" href="#"><span>Home</span> <span>Decor</span></a>
+     
+              <!-- Toggler for Mobile View -->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+              </button>
+     
+              <!-- Center Menu -->
+              <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                 <ul class="navbar-nav">
+                    <li class="nav-item">
+                       <a aria-current='page' class='nav-link active' href='/'>Home</a>
+                    </li>
+                    <li class="nav-item">
+                       <a class='nav-link' href='products.html'>Products</a>
+                    </li>
+                    <li class="nav-item">
+                       <a class='nav-link' href='/blog'>Blog</a>
+                    </li>
+                 </ul>
+              </div>
+     
+              <!-- Right Icons -->
+              <div class="d-flex ms-auto">
+                 <a class='nav-link mx-4' href='/wishlist'>
+                    <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="white">
+                       <path d="M5.047 2.506c-2.114 0-3.533 1.711-3.533 3.824 0 2.398 3.35 5.263 6.22 7.176 2.871-1.913 6.182-4.824 6.221-7.176.035-2.113-1.333-3.824-3.447-3.824-.902 0-1.817.477-2.774 1.433-.957-.956-1.785-1.433-2.687-1.433z"></path>
+                    </svg>
+                 </a>
+                 <a class='nav-link me-5' href='/cart'>
+                    <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="white">
+                       <path d="M75 71.09v-10c0-14.28 11.15-25.93 25-25.93s25 11.65 25 25.93v10h17.28A3.13 3.13 0 0 1 145.4 74l5.94 87.5a3.14 3.14 0 0 1-2.91 3.33H51.78a3.12 3.12 0 0 1-3.12-3.12v-.21L54.6 74a3.13 3.13 0 0 1 3.12-2.92Zm9.38 0h31.25v-10c0-9.19-7-16.56-15.63-16.56S84.38 51.9 84.38 61.09Zm-25.91 84.38h83.06l-5.08-75H63.56Z"></path>
+                    </svg>
+                 </a>
+              </div>
+           </div>
+        </nav>
+     </header>
+     <div class="container-fluid hero">
+        
+              <div class="row">
+                 <div class="col-6 text-start text-light p-5 my-5">
+                    <h5 class="lead text-light" data-aos="fade-up" data-aos-delay="200">BEST DEAL FOREVER</h5>
+                    <br>
+                    <h2>Hurry!</h2>
+                    <h2>Get your product now</h2>
+                    <ul class="nav">
+                        <li class="nav-item d-flex align-items-center">
+                          <a class="nav-link logo me-2" href="#">Home</a>
+                          <a class="text-secondary text-decoration-none mb-0">> Library</a>
+                          </li>
+                    </ul>
+                        
+                      
+                      
+                   </div>       
+                        
+                
+                 
+                 </div>
+                 </div>
+                 <br>
+    <div class=" text-center">
+        <button class="link-btn border border-1 rounded-pill mx-4 bg-white px-4">SOFA<img src="img51.svg"> </button>
+        <button class="link-btn border border-1 rounded-pill mx-3 bg-white px-4">TABLE<img src="img52.svg"> </button>
+        <button class="link-btn border border-1 rounded-pill mx-3 bg-white px-4">BED <img src="img53.svg"> </button>
+     </div>
+        
+        <div class="card-items row  d-flex justify-content-center">
+           <div class="card col-xl-4 col-md-6 col-sm-12 m-3 ">
+              <div class="wish-list">
+                 <img src="wishlist.png" alt="wishlist.png">
+              </div>
+             <img src="card1.webp" class="card-img-top" alt="card1.webp">
+             <div class="card-body">
+               <p class="card-title">CHAIR</p>
+               <h4 class="card-text">Puffed Chair</h4>
+               <div class="price-section d-flex justify-content-start align-items-center">
+                 <span class="current-price">$249.00</span>
+                 <del class="original-price ms-2">$287.00</del>
+              </div>
+               <a href="#" class="btn btn-primary px-2">Buy Now</a>
+               <a href="#" class="btn btn-outline-primary">Add to cart<img src="cart.png" class="cart-icon"></a>
+             </div>
+           </div>
+   
+           <div class="card col-xl-4 col-md-6 col-sm-12 m-3">
+              <div class="wish-list">
+                 <img src="wishlist.png" alt="wishlist.png">
+              </div>
+             <img src="card2.webp" class="card-img-top" alt="card2.webp">
+             <div class="card-body">
+               <p class="card-title">Chair</p>
+               <h4 class="card-text">Upholstered chair</h4>
+               <div class="price-section d-flex justify-content-start align-items-center">
+                 <span class="current-price">$399.00</span>
+                 <del class="original-price ms-2">$450.00</del>
+              </div>
+               <a href="#" class="btn btn-primary">Buy Now</a>
+               <a href="#" class="btn btn-outline-primary">Add to cart<img src="cart.png" class="cart-icon"></a>
+               
+
+             </div>
+           </div>
+   
+           <div class="card col-xl-4 col-md-6 col-sm-12 m-3">
+              <div class="wish-list">
+                 <img src="wishlist.png" alt="wishlist">
+              </div>
+             <img src="card3.webp" class="card-img-top" alt="card3.webp">
+             <div class="card-body">
+               <p class="card-title">TABLE</p>
+               <h4 class="card-text">T-Table</h4>
+               <div class="price-section d-flex justify-content-start align-items-center">
+                 <span class="current-price">$399.00</span>
+                 <del class="original-price ms-2">$450.00</del>
+              </div>
+               <a href="#" class="btn btn-primary">Buy Now</a>
+               <a href="#" class="btn btn-outline-primary">Add to cart<img src="cart.png" class="cart-icon"></a>
+             </div>
+           </div>
+             
+        
+              <div class="card col-xl-4 col-md-6 col-sm-12 m-3">
+                 <div class="wish-list">
+                    <img src="wishlist.png" alt="wishlist">
+                 </div>
+                <img src="card4.webp" class="card-img-top" alt="card1.webp">
+                <div class="card-body">
+                  <p class="card-title">CHAIR</p>
+                  <h4 class="card-text">Bombi Chair</h4>
+                  <div class="price-section d-flex justify-content-start align-items-center">
+                    <span class="current-price">$249.00</span>
+                    <del class="original-price ms-2">$287.00</del>
+                 </div>
+                  <a href="#" class="btn btn-primary px-2">Buy Now</a>
+                  <a href="#" class="btn btn-outline-primary">Add to cart<img src="cart.png" class="cart-icon"></a>
+                </div>
+              </div>
+      
+              <div class="card col-xl-4 col-md-6 col-sm-12 m-3">
+                 <div class="wish-list">
+                    <img src="wishlist.png" alt="wishlist">
+                 </div>
+                <img src="card5.webp" class="card-img-top" alt="card2.webp">
+                <div class="card-body">
+                  <p class="card-title">SHELF</p>
+                  <h4 class="card-text">Wooden Bookshelf</h4>
+                  <div class="price-section d-flex justify-content-start align-items-center">
+                    <span class="current-price">$550.00</span>
+                    <del class="original-price ms-2">$657.00</del>
+                 </div>
+                  <a href="#" class="btn btn-primary">Buy Now</a>
+                  <a href="#" class="btn btn-outline-primary">Add to cart<img src="cart.png" class="cart-icon"></a>
+                  
+
+                </div>
+              </div>
+      
+              <div class="card col-xl-4 col-md-6 col-sm-12 m-3">
+                 <div class="wish-list">
+                    <img src="wishlist.png" alt="wishlist">
+                 </div>
+                <img src="card6.webp" class="card-img-top" alt="card3.webp">
+                <div class="card-body">
+                  <p class="card-title">Chair</p>
+                  <h4 class="card-text">Puffed Chair</h4>
+                  <div class="price-section d-flex justify-content-start align-items-center">
+                    <span class="current-price">$249.00</span>
+                    <del class="original-price ms-2">$287.00</del>
+                 </div>
+                  <a href="#" class="btn btn-primary">Buy Now</a>
+                  <a href="#" class="btn btn-outline-primary">Add to cart<img src="cart.png" class="cart-icon"></a>
+                </div>
+              </div>
+             </div>
+             <footer class="text-white-50 pt-5 pb-4">
+                <div class="container">
+                   <div class="row">
+                      
+                      <div class="col-md-4 col-lg-4">
+                         <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact Us</h5>
+                         <p><i class="fas fa-phone-alt me-2"></i>+123 4567 8910</p>
+                         <p><i class="fas fa-envelope me-2"></i>demo@example.com</p>
+                      </div>
+             
+                      
+                      <div class="col-md-2 col-lg-2">
+                         <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Product</h5>
+                         <ul class="list-unstyled">
+                            <li><a href="#" class="text-white-50">Shop Vendor</a></li>
+                            <li><a href="#" class="text-white-50">Product House</a></li>
+                            <li><a href="#" class="text-white-50">Categories</a></li>
+                            <li><a href="#" class="text-white-50">Delivery Areas</a></li>
+                            <li><a href="#" class="text-white-50">Delivery Cost</a></li>
+                         </ul>
+                      </div>
+             
+                   
+                      <div class="col-md-2 col-lg-2">
+                         <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Offer</h5>
+                         <ul class="list-unstyled">
+                            <li><a href="#" class="text-white-50">Shop Vendor</a></li>
+                            <li><a href="#" class="text-white-50">Product House</a></li>
+                            <li><a href="#" class="text-white-50">Categories</a></li>
+                            <li><a href="#" class="text-white-50">Delivery Areas</a></li>
+                            <li><a href="#" class="text-white-50">Delivery Cost</a></li>
+                         </ul>
+                      </div>
+             
+                      
+                      <div class="col-md-2 col-lg-2">
+                         <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Information</h5>
+                         <ul class="list-unstyled">
+                            <li><a href="#" class="text-white-50">Shop Vendor</a></li>
+                            <li><a href="#" class="text-white-50">Product House</a></li>
+                            <li><a href="#" class="text-white-50">Categories</a></li>
+                            <li><a href="#" class="text-white-50">Delivery Areas</a></li>
+                            <li><a href="#" class="text-white-50">Delivery Cost</a></li>
+                         </ul>
+                      </div>
+             
+                      
+                      <div class="col-md-2 col-lg-2">
+                         <h5 class="text-uppercase mb-4 font-weight-bold text-warning">About</h5>
+                         <ul class="list-unstyled">
+                            <li><a href="#" class="text-white-50">Shop Vendor</a></li>
+                            <li><a href="#" class="text-white-50">Product House</a></li>
+                            <li><a href="#" class="text-white-50">Categories</a></li>
+                            <li><a href="#" class="text-white-50">Delivery Areas</a></li>
+                         </ul>
+                      </div>
+                   </div>
+             
+                
+                   <div class="row mt-4">
+                      <div class="col-sm-12 col-md-6 text-left">
+                         <p class="text-white">
+                            © 2021 Mart Up. Made with 
+                            <i class="fas fa-heart text-danger"></i> by 
+                            <a href="#" class="text-warning text-decoration-none">Codecarnival</a>
+                         </p>
+                      </div>
+                      <div class="col-sm-12 col-md-6 text-right">
+                         <img src="visa.webp" alt="">
+                         
+                      </div>
+                   </div>
+                </div>
+             </footer>
+         
+        
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .header {
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   background-color: #1b1a42;
+   z-index: 1000;
+}
+.navbar-brand {
+   font-weight: bold;
+   font-size: 1.5rem;
+   color: #dfdede;
+}
+
+.navbar-nav .nav-link {
+   margin: 0 15px;
+   color: #e7e6e6;
+   font-weight: 500;
+}
+
+.navbar-nav .nav-link.active {
+   color: #007bff;
+}
+
+.nav-icon {
+   width: 20px;
+   height: 20px;
+}
+.hero {
+   padding: 50px 0;
+   background: #1b1a42;
+}
+.blog-hero-section {
+         background-color: #2b2b4d;
+         height: 80vh;
+         position: relative;
+         color: #fff;
+      }
+      
+      .blog-hero-section .overlay {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: #00000080;
+         z-index: 1;
+      }
+      
+      .blog-hero-section .container {
+         position: relative;
+         z-index: 2;
+      }
+      
+      .blog-hero-section h1 {
+         text-shadow: 2px 2px 5px #00000080;
+      }
+      
+      .blog-hero-section .btn {
+         box-shadow: 2px 2px 10px #0000004d;
+         transition: transform 0.3s;
+      }
+      
+      .blog-hero-section .btn:hover {
+         transform: scale(1.05);
+      }
+    </style>
+</head>
+<body>
+    <header class="header fixed-top">
+        <nav class="navbar navbar-expand-lg">
+           <div class="container-fluid">
+              <!-- Logo on the Left -->
+              <a class="navbar-brand logo me-auto" href="#"><span>Home</span> <span>Decor</span></a>
+     
+              <!-- Toggler for Mobile View -->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+              </button>
+     
+              <!-- Center Menu -->
+              <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                 <ul class="navbar-nav">
+                    <li class="nav-item">
+                       <a aria-current='page' class='nav-link active' href='/'>Home</a>
+                    </li>
+                    <li class="nav-item">
+                       <a class='nav-link' href='products.html'>Products</a>
+                    </li>
+                    <li class="nav-item">
+                       <a class='nav-link' href='blog.html'>Blog</a>
+                    </li>
+                 </ul>
+              </div>
+     
+              <!-- Right Icons -->
+              <div class="d-flex ms-auto">
+                 <a class='nav-link mx-4' href='/wishlist'>
+                    <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="white">
+                       <path d="M5.047 2.506c-2.114 0-3.533 1.711-3.533 3.824 0 2.398 3.35 5.263 6.22 7.176 2.871-1.913 6.182-4.824 6.221-7.176.035-2.113-1.333-3.824-3.447-3.824-.902 0-1.817.477-2.774 1.433-.957-.956-1.785-1.433-2.687-1.433z"></path>
+                    </svg>
+                 </a>
+                 <a class='nav-link me-5' href='/cart'>
+                    <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="white">
+                       <path d="M75 71.09v-10c0-14.28 11.15-25.93 25-25.93s25 11.65 25 25.93v10h17.28A3.13 3.13 0 0 1 145.4 74l5.94 87.5a3.14 3.14 0 0 1-2.91 3.33H51.78a3.12 3.12 0 0 1-3.12-3.12v-.21L54.6 74a3.13 3.13 0 0 1 3.12-2.92Zm9.38 0h31.25v-10c0-9.19-7-16.56-15.63-16.56S84.38 51.9 84.38 61.09Zm-25.91 84.38h83.06l-5.08-75H63.56Z"></path>
+                    </svg>
+                 </a>
+              </div>
+           </div>
+        </nav>
+     </header>
+     <div class="container-fluid hero">
+        
+        <div class="row">
+           <div class="col-6 text-start text-light p-5 my-5">
+              <h2>Discover Inspiring Home Decor Ideas!!</h2>
+            <p>Your go-to source for the latest trends and design inspirations.</p>
+            <br>
+            <button type="button" class="btn btn-light btn-lg" style="font-size: 1.5rem; ">
+                Explore Blogs
+              </button>
+              
+              </div>
+              </div>
+              </div>
+              <br>
+              <section class="container py-5" id="latest-blogs">
+                <div class="row g-5">
+                       <!-- Blog Card 1 -->
+                       <div class="col-md-4">
+                          <div class="card shadow-sm h-100">
+                             <img src="blog1.jpg" class="card-img-top" alt="Modern Living Room">
+                             <div class="card-body py-5 px-3">
+                                <h5 class="card-title">Modern Living Room Ideas </h5>
+                                <p class="card-text">Explore the latest trends in modern living room designs that bring comfort and style together.</p>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                             </div>
+                             <div class="card-footer text-muted">
+                                <small>Posted on January 15, 2025</small>
+                             </div>
+                          </div>
+                       </div>
+              
+                       <!-- Blog Card 2 -->
+                       <div class="col-md-4">
+                          <div class="card shadow-sm h-100">
+                             <img src="blog2.jpg" class="card-img-top" alt="Minimalist Bedroom">
+                             <div class="card-body py-5 px-3">
+                                <h5 class="card-title">Minimalist Bedroom Designs</h5>
+                                <p class="card-text">Discover how to create a peaceful and clutter-free bedroom with a minimalist design approach.</p>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                             </div>
+                             <div class="card-footer text-muted">
+                                <small>Posted on February 2, 2025</small>
+                             </div>
+                          </div>
+                       </div>
+              
+                       <!-- Blog Card 3 -->
+                       <div class="col-md-4">
+                          <div class="card shadow-sm h-100">
+                             <img src="blog3.jpg" class="card-img-top" alt="Outdoor Decor">
+                             <div class="card-body py-5 px-3">
+                                <h5 class="card-title">Outdoor Decor Inspiration</h5>
+                                <p class="card-text">Bring life to your outdoor spaces with creative decor ideas that blend functionality and style.</p>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                             </div>
+                             <div class="card-footer text-muted">
+                                <small>Posted on February 10, 2025</small>
+                             </div>
+                          </div>
+                       </div>
+                       <div class="col-md-4">
+                          <div class="card shadow-sm h-100">
+                             <img src="blog3.jpg" class="card-img-top" alt="Kitchen Design Trends">
+                             <div class="card-body py-4 px-3">
+                                <h5 class="card-title">Kitchen Design Trends</h5>
+                                <p class="card-text">Get inspired by the latest kitchen designs that combine functionality and elegance.</p>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                             </div>
+                             <div class="card-footer text-muted">
+                                <small>Posted on February 10, 2025</small>
+                             </div>
+                          </div>
+                       </div>
+                       <!-- Blog Card 4 -->
+                       <div class="col-md-4">
+                          <div class="card shadow-sm h-100">
+                             <img src="blog4.jpg" class="card-img-top" alt="Outdoor Patio Ideas">
+                             <div class="card-body py-4 px-3">
+                                <h5 class="card-title">Outdoor Patio Ideas</h5>
+                                <p class="card-text">Transform your outdoor space into a relaxing oasis with these beautiful patio ideas.</p>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                             </div>
+                             <div class="card-footer text-muted">
+                                <small>Posted on February 15, 2025</small>
+                             </div>
+                          </div>
+                       </div>
+                       <!-- Blog Card 5 -->
+                       <div class="col-md-4">
+                          <div class="card shadow-sm h-100">
+                             <img src="blog5.jpg" class="card-img-top" alt="Home Office Setup">
+                             <div class="card-body py-4 px-3">
+                                <h5 class="card-title">Stylish Home Office Setup</h5>
+                                <p class="card-text">Create a productive and inspiring workspace with these modern home office ideas.</p>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                             </div>
+                             <div class="card-footer text-muted">
+                                <small>Posted on February 18, 2025</small>
+                             </div>
+                          </div>
+                       </div>
+                       <!-- Blog Card 6 -->
+                       <div class="col-md-4">
+                          <div class="card shadow-sm h-100">
+                             <img src="blog6.jpg" class="card-img-top" alt="Interior Color Schemes">
+                             <div class="card-body py-4 px-3">
+                                <h5 class="card-title">Interior Color Schemes</h5>
+                                <p class="card-text">Learn how to use color schemes to enhance the ambiance and aesthetics of your home.</p>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                             </div>
+                             <div class="card-footer text-muted">
+                                <small>Posted on February 22, 2025</small>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </section>
+</body>
+</html>
